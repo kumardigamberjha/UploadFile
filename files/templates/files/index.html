@@ -53,11 +53,16 @@
                     <div class="card-header bg-danger" style="color: white">Add Call Details From Excel</div>
                     <div class="card-body text-dark">
                         <div class="input-group">
-                            <input type="file" class="form-control border-dark" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" name="myfile" aria="Upload">
+                            <input type="file" class="form-control border-dark" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" name="myfile1" aria="Upload">
                             <button class="btn btn-outline-danger" type="submit"
                                 id="inputGroupFileAddon04">Upload</button>
                         </div>
-                        <ul class="text-muted mt-4">
+                        <div class="input-group">
+                            <input type="file" class="form-control border-dark" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" name="myfile2" aria="Upload">
+                            <button class="btn btn-outline-danger" type="submit"
+                                id="inputGroupFileAddon04">Upload</button>
+                        </div>
+                        <!-- <ul class="text-muted mt-4">
                             Note
                             <li>File Must Follow the same structure as shown on website that is<br>
                                 1.name 2.phone 3.email 4.address 5.adhar
@@ -65,10 +70,19 @@
                             <li>File Must be Case Sensitive.</li>
                             <li>Excel Headers Should be in small Case</li>
                             <li>File must have an extension of Excel.</li>
-                        </ul>
+                        </ul> -->
+
+                        <input type="submit" value="Submit">
                     </div>
                 </div>
             </form>
+
+            <div class="row">
+                <div class="colmd-12">
+                    <!-- File: <a href=""></a> -->
+                    <a href="../../../dupli_address.xlsx">File</a>
+                </div>
+            </div>
         </div>
     </div>
     {% endblock content %}

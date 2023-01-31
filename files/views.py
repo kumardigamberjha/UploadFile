@@ -19,10 +19,10 @@ def Index(request):
         dropdf2 = df2.drop_duplicates()
 
         commondf = pd.merge(dropdf1, dropdf2, on=["phone"])
-        commondf1 = pd.merge(df1, df2, on=["name"])
-        commondf2 = pd.merge(df1, df2, on=["email"])
-        commondf3 = pd.merge(df1, df2, on=["address"])
-        commondf4 = pd.merge(df1, df2, on=["adhar"])
+        # commondf1 = pd.merge(df1, df2, on=["name"])
+        # commondf2 = pd.merge(df1, df2, on=["email"])
+        # commondf3 = pd.merge(df1, df2, on=["address"])
+        # commondf4 = pd.merge(df1, df2, on=["adhar"])
 
         print(commondf)
         # print(commondf1)
@@ -30,20 +30,20 @@ def Index(request):
         # print(commondf3)
         # print(commondf4)
 
-        # drop_dupli = commondf.drop_duplicates()
-        commondf.to_excel('duplicate_name.xlsx')
+        drop_dupli = commondf.drop_duplicates()
+        commondf.to_excel('duplicate_phone.xlsx')
 
-        drop_dupli1 = commondf1.drop_duplicates()
-        drop_dupli1.to_excel('dupli_phone.xlsx')
+        # drop_dupli1 = commondf1.drop_duplicates()
+        # drop_dupli1.to_excel('dupli_phone.xlsx')
 
-        drop_dupli2 = commondf2.drop_duplicates()
-        drop_dupli2.to_excel('dupli_email.xlsx')
+        # drop_dupli2 = commondf2.drop_duplicates()
+        # drop_dupli2.to_excel('dupli_email.xlsx')
 
-        drop_dupli3 = commondf3.drop_duplicates()
-        drop_dupli3.to_excel('dupli_address.xlsx')
+        # drop_dupli3 = commondf3.drop_duplicates()
+        # drop_dupli3.to_excel('dupli_address.xlsx')
 
-        drop_dupli4 = commondf4.drop_duplicates()
-        drop_dupli4.to_excel('dupli_adhar.xlsx')
+        # drop_dupli4 = commondf4.drop_duplicates()
+        # drop_dupli4.to_excel('dupli_adhar.xlsx')
 
 
         # df_all_rows = pd.concat([drop_dupli, drop_dupli1, drop_dupli2, drop_dupli3, drop_dupli4])

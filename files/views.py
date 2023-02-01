@@ -19,17 +19,27 @@ def Index(request):
             file2 = None
 
         df1 = pd.read_excel(file1)
-        f1 = pd.DataFrame(df1).value_counts()
-        print(f1)
         if file2:
-            df2 = pd.read_excel(file2)        
-            f2 = pd.DataFrame(df2).value_counts()
-            print(f2)
-        
-            df_all_rows = pd.concat([f1, f2])
-            df_all_rows.to_excel('drop_dupli.xlsx')
+            df2 = pd.read_excel(file2)
+            df1_counts = pd.DataFrame(df1['phone']).value_counts()
+            df2_counts = pd.DataFrame(df2['phone']).value_counts()
+
+            df3 = df1_counts + df2_counts
+            df3.to_excel('df3.xlsx')
+
+            # df2_counts.columns = ['phone', 'Count']
+
+            # df_concat = pd.concat([df1, df2_counts], axis=1, sort=False)
+
+            # df_grouped = df_concat.groupby(['phone']).sum()
+
+            # print(df_grouped)
+            # df_grouped.to_excel('f2.xlsx')
+
         else:
-            df1.to_excel('drop_dupli.xlsx')
+            f1 = pd.DataFrame(df1).value_counts()
+            f1.to_excel('f1.xlsx')
+
 
 
         # commondf = pd.merge(dropdf1, dropdf2, on=["phone"])

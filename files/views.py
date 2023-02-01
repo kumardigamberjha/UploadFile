@@ -6,32 +6,47 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 import numpy as np
 import pandas as pd
+from collections import Counter
+
 
 def Index(request):
     drop_dupli = []
     if request.method == 'POST':
         file1 = request.FILES['myfile1']
-        file2 = request.FILES['myfile2']
+        try:
+            file2 = request.FILES['myfile2']
+        except:
+            file2 = None
 
         df1 = pd.read_excel(file1)
-        dropdf1 = df1.drop_duplicates()
-        df2 = pd.read_excel(file2)        
-        dropdf2 = df2.drop_duplicates()
+        f1 = pd.DataFrame(df1).value_counts()
+        print(f1)
+        if file2:
+            df2 = pd.read_excel(file2)        
+            f2 = pd.DataFrame(df2).value_counts()
+            print(f2)
+        
+            df_all_rows = pd.concat([f1, f2])
+            df_all_rows.to_excel('drop_dupli.xlsx')
+        else:
+            df1.to_excel('drop_dupli.xlsx')
 
-        commondf = pd.merge(dropdf1, dropdf2, on=["phone"])
+
+        # commondf = pd.merge(dropdf1, dropdf2, on=["phone"])
         # commondf1 = pd.merge(df1, df2, on=["name"])
         # commondf2 = pd.merge(df1, df2, on=["email"])
         # commondf3 = pd.merge(df1, df2, on=["address"])
         # commondf4 = pd.merge(df1, df2, on=["adhar"])
 
-        print(commondf)
         # print(commondf1)
         # print(commondf2)
         # print(commondf3)
         # print(commondf4)
 
-        drop_dupli = commondf.drop_duplicates()
-        commondf.to_excel('duplicate_phone.xlsx')
+        # drop_dupli = commondf.drop_duplicates()
+        # commondf.to_excel('duplicate_phone.xlsx')
+
+        # dups = df1.groupby(df1.columns.tolist()).size().reset_index().rename(columns={0:'count'})
 
         # drop_dupli1 = commondf1.drop_duplicates()
         # drop_dupli1.to_excel('dupli_phone.xlsx')

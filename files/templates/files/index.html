@@ -29,7 +29,6 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'searchview' %}">Search For Records</a>
                     </li>
                 </ul>
                 <!-- <form class="d-flex" role="search">
@@ -53,19 +52,27 @@
                     <div class="card-header bg-danger" style="color: white">Add Call Details From Excel</div>
                     <div class="card-body text-dark">
                         <div class="input-group">
-                            <input type="file" class="form-control border-dark" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" name="myfile1" aria="Upload">
+                            <input type="file" class="form-control border-dark" id="inputGroupFile04"
+                                aria-describedby="inputGroupFileAddon04" name="myfile1" aria="Upload" multiple>
                             <!-- <button class="btn btn-outline-danger" type="submit"
                                 id="inputGroupFileAddon04">Upload</button> -->
                         </div>
                         <div class="input-group mt-2">
-                            <input type="file" class="form-control border-dark" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" name="myfile2" aria="Upload">
+                            <input type="file" class="form-control border-dark" id="inputGroupFile04"
+                                aria-describedby="inputGroupFileAddon04" name="myfile2" aria="Upload">
+                            <!-- <button class="btn btn-outline-danger" type="submit"
+                                id="inputGroupFileAddon04">Upload</button> -->
+                        </div>
+                        <div class="input-group mt-2">
+                            <input type="file" class="form-control border-dark" id="inputGroupFile04"
+                                aria-describedby="inputGroupFileAddon04" name="myfile3" aria="Upload">
                             <!-- <button class="btn btn-outline-danger" type="submit"
                                 id="inputGroupFileAddon04">Upload</button> -->
                         </div>
 
                         <div class="container text-center mt-3">
-                        <input type="submit" value="Submit" class="btn btn-success mx-auto">
-                    </div>
+                            <input type="submit" value="Submit" class="btn btn-success mx-auto">
+                        </div>
                     </div>
                 </div>
             </form>
@@ -74,7 +81,7 @@
                 <div class="colmd-12 text-center">
                     <h2 class="text-center">Download Duplicate Record File</h2>
                     <!-- File: <a href=""></a> -->
-                    <a href="../../../duplicate_phone.xlsx" class="text-center">Click Here To Download Your File</a>
+                    <a href="../../../df3.xlsx" class="text-center">Click Here To Download Your File</a>
                 </div>
             </div>
         </div>
